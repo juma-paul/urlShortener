@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+
+{% block title %} Welcome to short.ly {% endblock %}
+
+{% block content %}
+<h1>Welcome to short.ly</h1>
+<p>
+  Simplify your links with our easy-to-use URL shortener. Create concise,
+  shareable links in just a few clicks.
+</p>
+<p>
+  Save time, track your links, and optimize your online presence with our
+  powerful tools.
+</p>
+<a href="{% url 'shorten' %}" class="btn">Get Started</a>
+{% endblock%}
