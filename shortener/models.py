@@ -8,3 +8,4 @@ class URL(models.Model):
 
     def __str__(self):
         return f"{self.short_url} -> {self.long_url}"
+
