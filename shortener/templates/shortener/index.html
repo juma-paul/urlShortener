@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Shorten URL{% endblock %}
-
 {% block content %}
-    <form method="POST">
+<div class="mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      <h1 class="text-center mb-4">Shorten URL</h1>
+      <form method="POST">
         {% csrf_token %}
-        <input type="url" name="long_url" placeholder="Enter the long URL" required>
-        <button type="submit">Shorten</button>
-    </form>
+        <div class="input-group mb-3">
+          <input type="url" name="long_url" class="form-control" id="long_url" placeholder="https://example.com" required>
+          <button type="submit" class="btn btn-primary">Shorten</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
