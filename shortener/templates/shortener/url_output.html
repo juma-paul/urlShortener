@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if short_url %}
+    <div>
+        <h2>Shortened URL:</h2>
+        <input type="text" value="{{ short_url }}" id="shortUrl" readonly>
+        <button onclick="copyToClipboard()">Copy</button>
+    </div>
+{% endif %}
+    <script>
+        function copyToClipboard() {
+            var copyText = document.getElementById("shortUrl");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            alert("Copied the URL: " + copyText.value);
+        }
+    </script>
+{% endblock %}
