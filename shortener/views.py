@@ -1,7 +1,7 @@
 import string
 import random
-from django.shortcuts import render, redirect # type: ignore
-from django.http import HttpResponse # type: ignore
+from django.shortcuts import render, redirect 
+from django.http import HttpResponse 
 from .models import URL
 
 BASE62 = string.ascii_letters + string.digits
