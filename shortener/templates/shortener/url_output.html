@@ -1,21 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-{% if short_url %}
-    <div>
-        <h2>Shortened URL:</h2>
-        <input type="text" value="{{ short_url }}" id="shortUrl" readonly>
-        <button onclick="copyToClipboard()">Copy</button>
+<div class="mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+      {% if short_url %}
+        <h2 class="text-center mb-4">Shortened URL:</h2>
+        <div class="input-group mb-3">
+          <input type="text" value="{{ short_url }}" id="shortUrl" class="form-control" readonly>
+          <button class="btn btn-primary" onclick="copyToClipboard()">Copy</button>
+        </div>
+        <div id="copyNotification" class="alert alert-success mt-2 small d-none" role="alert">
+          URL copied!
+        </div>
+        <div class="text-center mt-4">
+          <a href="{% url 'index' %}" class="btn btn-secondary">Shorten another URL</a>
+        </div>
+      {% endif %}
     </div>
-{% endif %}
-    <script>
-        function copyToClipboard() {
-            var copyText = document.getElementById("shortUrl");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            document.execCommand("copy");
-            alert("Copied the URL: " + copyText.value);
+  </div>
+</div>
+
+<style>
+  #copyNotification {
+    font-size: 0.8rem; 
+    padding: 0.5rem 1rem; 
+    border-radius: 0.25rem; 
+  }
+</style>
+
+<script>
+    async function copyToClipboard() {
+        try {
+            const copyText = document.getElementById("shortUrl").value;
+            await navigator.clipboard.writeText(copyText);
+
+            // Show notification
+            const notification = document.getElementById("copyNotification");
+            notification.classList.remove("d-none");
+
+            // Hide notification after 2 seconds
+            setTimeout(() => {
+                notification.classList.add("d-none");
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy: ', err);
         }
-    </script>
+    }
+</script>
 {% endblock %}
