@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-p2qb@3fa(!@3s+bt%)@)_a&jen!_0lfm+4w3c13=v7r6-4%bru"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] # allow all domains to access project
+ALLOWED_HOSTS = ['short-ly-1cac629b68b0.herokuapp.com', '127.0.0.1'] # allow all domains to access project
 
 
 # Application definition
@@ -76,14 +76,21 @@ WSGI_APPLICATION = "urlShortener.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": "shortenerdb",
+#         "USER": "shortenerAdmin",
+#         "PASSWORD": "@Short.ly12",
+#         "HOST": "127.0.0.1",
+#         "PORT": "3306",
+#     }
+# }
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "shortenerdb",
-        "USER": "shortenerAdmin",
-        "PASSWORD": "@Short.ly12",
-        "HOST": "127.0.0.1",
-        "PORT": "3306",
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
     }
 }
 
