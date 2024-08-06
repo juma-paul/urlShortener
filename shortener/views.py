@@ -28,3 +28,12 @@ def redirect_url(request, short_code):
     if url:
         return redirect(url.long_url)
     return HttpResponse('URL not found', status=404)
+
+def register(request):
+    pass
+
+def login(request):
+    pass
+
+def logout(request):
+    pass

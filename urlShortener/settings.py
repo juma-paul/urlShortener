@@ -78,16 +78,7 @@ WSGI_APPLICATION = "urlShortener.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "shortenerdb",
-#         "USER": "shortenerAdmin",
-#         "PASSWORD": "@Short.ly12",
-#         "HOST": "127.0.0.1",
-#         "PORT": "3306",
-#     }
-# }
+
 
 DATABASES = {
     'default': {
