@@ -30,10 +30,10 @@ def redirect_url(request, short_code):
     return HttpResponse('URL not found', status=404)
 
 def register(request):
-    pass
+    return render(request, "shortener/register.html")
 
 def login(request):
-    pass
+    return render(request, "shortener/login.html")
 
 def logout(request):
-    pass
+    return render(request, "homepage")
