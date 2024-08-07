@@ -48,7 +48,7 @@ def shortener(request):
             
             URL.objects.create(long_url=long_url, short_url=short_code)
         
-        short_url = f"{request.build_absolute_uri('/')}short/{short_code}"
+        short_url = f"{request.build_absolute_uri('/')}/{short_code}"
         context = {'short_url': short_url}
         
         return render(request, 'shortener/url_output.html', context)
