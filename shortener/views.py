@@ -30,18 +30,29 @@ def generate_unique_short_code(length=7):
         if not URL.objects.filter(short_url=short_code).exists():
             return short_code
         
-def generate_short_code():
-    pass
-
 def index(request):
+    """Handle URL shortening and display the short URL."""
+
     if request.method == 'POST':
         long_url = request.POST.get('long_url')
-        short_code = generate_short_code()
-        while URL.objects.filter(short_url=short_code).exists():
-            short_code = generate_short_code()
-        short_url = f"{request.build_absolute_uri('/')}{short_code}"
-        URL.objects.create(long_url=long_url, short_url=short_code)
-        return render(request, 'shortener/url_output.html', {'short_url': short_url})
+        
+        url_entry = URL.objects.filter(long_url=long_url).first()
+        
+        if url_entry:
+            short_code = url_entry.short_url
+        else:
+            short_code = generate_unique_short_code()
+            
+            while URL.objects.filter(short_url=short_code).exists():
+                short_code = generate_unique_short_code()
+            
+            URL.objects.create(long_url=long_url, short_url=short_code)
+        
+        short_url = f"{request.build_absolute_uri('/')}short/{short_code}"
+        context = {'short_url': short_url}
+        
+        return render(request, 'shortener/url_output.html', context)
+    
     return render(request, 'shortener/index.html')
 
 def redirect_url(request, short_code):
