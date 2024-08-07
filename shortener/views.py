@@ -16,9 +16,20 @@ def base62_encode(number):
     while number > 0:
         encoded = chars[number % 62] + encoded
         number //= 62
-        
+
     return encoded
 
+def generate_unique_short_code(length=7):
+    """Generates a unique short code of the specified length."""
+
+    while True:
+        random_number = random.getrandbits(64)
+        code = base62_encode(random_number)
+        short_code = ''.join(random.choices(code, k=length))
+        
+        if not URL.objects.filter(short_url=short_code).exists():
+            return short_code
+        
 def generate_short_code():
     pass
 
