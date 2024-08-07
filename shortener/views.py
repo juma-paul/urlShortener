@@ -4,13 +4,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse 
 from .models import URL
 
-BASE62 = string.ascii_letters + string.digits
-
-def generate_short_code(length=7):
-    return ''.join(random.choices(BASE62, k=length))
 
 def homepage(request):
     return render(request, 'homepage.html')
+
+def generate_short_code():
+    pass
 
 def index(request):
     if request.method == 'POST':
