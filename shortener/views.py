@@ -56,9 +56,12 @@ def index(request):
     return render(request, 'shortener/index.html')
 
 def redirect_url(request, short_code):
+    """Redirect to the original URL based on the short code."""
+
     url = URL.objects.filter(short_url=short_code).first()
     if url:
         return redirect(url.long_url)
+    
     return HttpResponse('URL not found', status=404)
 
 def register(request):
