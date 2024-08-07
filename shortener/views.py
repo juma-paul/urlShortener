@@ -30,7 +30,7 @@ def generate_unique_short_code(length=7):
         if not URL.objects.filter(short_url=short_code).exists():
             return short_code
         
-def index(request):
+def shortener(request):
     """Handle URL shortening and display the short URL."""
 
     if request.method == 'POST':
