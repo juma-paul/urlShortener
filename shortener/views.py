@@ -8,6 +8,17 @@ from .models import URL
 def homepage(request):
     return render(request, 'homepage.html')
 
+def base62_encode(number):
+    """Encodes a number into a base62 string."""
+
+    chars = string.ascii_letters + string.digits
+    encoded = ''
+    while number > 0:
+        encoded = chars[number % 62] + encoded
+        number //= 62
+        
+    return encoded
+
 def generate_short_code():
     pass
 
