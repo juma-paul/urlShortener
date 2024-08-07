@@ -14,20 +14,28 @@ from pathlib import Path
 import django_heroku # deployment step
 import dj_database_url # deployment step
 import os
+import environ
 # from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Initialize environment variables
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+
+# Read .env files
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-p2qb@3fa(!@3s+bt%)@)_a&jen!_0lfm+4w3c13=v7r6-4%bru"
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['short-ly-1cac629b68b0.herokuapp.com', '127.0.0.1'] # allow all domains to access project
 
