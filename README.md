@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a Django-based URL shortening service. It allows users to create shortened versions of URLs, which can then be easily shared or embedded in various contexts.
+This project is a Django-based URL shortening service. It allows users to create shortened versions of URLs, which can then be easily shared or embedded in different contexts.
 
 ## Features
 
@@ -11,12 +11,12 @@ This project is a Django-based URL shortening service. It allows users to create
 
 ## Project Structure
 
-- **shortener**: Contains the core logic for URL shortening and redirection.
+- **shortener**: Django app containing app related files and views for the logic.
 - **static**: Static assets like CSS, JavaScript, and images.
 - **templates**: HTML templates used for rendering the web pages.
-- **urlShortener**: Django app responsible for handling URL shortening.
+- **urlShortener**: Django project files including the URL dispatcher and settings for the application.
 - **.gitignore**: Specifies which files and directories should be ignored by Git.
-- **Procfile**: Configuration for deploying the app to Heroku.
+- **Procfile**: Configuration for deploying the project to Heroku.
 - **README.md**: This document, providing an overview of the project.
 - **manage.py**: Command-line utility for interacting with the Django project.
 - **requirements.txt**: List of dependencies required to run the project.
