@@ -8,7 +8,6 @@ This project is a Django-based URL shortening service. It allows users to create
 
 - **URL Shortening**: Shorten long URLs into more manageable links.
 - **Redirection**: Automatically redirect users to the original URL when accessing the shortened link.
-- **Admin Panel**: Manage and monitor the shortened URLs through Django's built-in admin interface.
 
 ## Project Structure
 
@@ -26,20 +25,20 @@ This project is a Django-based URL shortening service. It allows users to create
 ## Installation
 
 1. **Clone the repository**:
-   - git clone https://github.com/yourusername/url-shortener.git
-   - cd url-shortener
+   - `git clone https://github.com/yourusername/url-shortener.git`
+   - `cd url-shortener`
 2. **Create a virtual environment**:
-- python3 -m venv env
-- source env/bin/activate  # On Windows use `env\Scripts\activate`
+   - `python3 -m venv env`
+   - `source env/bin/activate ` # On Windows use `env\Scripts\activate`
 3. **Install dependencies**:
-- pip install -r requirements.txt
+   - `pip install -r requirements.txt`
 4. **Set up the database**:
-- python manage.py migrate
+   - `python manage.py migrate`
 5. **Run the development server**:
-- python manage.py runserver
+   - `python manage.py runserver`
 
 ## Deployment
-- The project is configured for deployment on Heroku. The Procfile and runtime.txt files ensure that the app is deployed with the correct settings and Python version.
+The project is configured for deployment on Heroku. The Procfile and runtime.txt files ensure that the app is deployed with the correct settings and Python version.
 
 ## Contributing
-- Contributions are welcome! Please create a new branch and open a pull request with your changes.
+Contributions are welcome! Please create a new branch and open a pull request with your changes.
